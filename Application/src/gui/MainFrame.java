@@ -1,6 +1,9 @@
 package gui;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class MainFrame extends JFrame {
 	
@@ -14,6 +17,13 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+		
+		
+		JLabel label = new JLabel("Hello From mac!");
+		
+		setLayout(new BorderLayout());
+		
+		add(label, BorderLayout.CENTER);
 	}
 
 }
