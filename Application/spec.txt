@@ -1,0 +1,13 @@
+online motel reservation
+
+
+application that allows u to reserve motel rooms
+
+classes:
+	motel room
+	
+	
+	
+	
+sends to database -- name - phone # - arrival date - depart date - room #
+
