@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
+import model.Guest;
+
 public class MainFrame extends JFrame {
 	
 	private static final int WIDTH = 400, HEIGHT = 500;
@@ -22,6 +24,18 @@ public class MainFrame extends JFrame {
 		
 		titlePanel = new TitlePanel();
 		formPanel = new FormPanel();
+		
+		
+		
+		formPanel.setFormListener(new FormListener( ) {
+
+			@Override
+			public void reserveRoom(Guest guest) {
+				System.out.println("New room reserved:\n" + guest.toString());
+				
+			}
+			
+		});
 		
 		setLayout(new BorderLayout());
 		

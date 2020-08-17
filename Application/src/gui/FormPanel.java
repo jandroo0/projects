@@ -2,9 +2,13 @@ package gui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import model.Guest;
 
 public class FormPanel extends JPanel {
 
@@ -19,6 +23,8 @@ public class FormPanel extends JPanel {
 	PlaceholderTextField numberField = new PlaceholderTextField();
 
 	JButton reserveButton = new JButton();
+	
+	FormListener formListener;
 
 	public FormPanel() {
 
@@ -37,9 +43,33 @@ public class FormPanel extends JPanel {
 		numberField.setPlaceholder("Phone #");
 
 		reserveButton = new JButton("Reserve");
+		
+		reserveButton.addActionListener(new ActionListener( ) {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String name = nameField.getText();
+				String birthDate = birthDateField.getText();
+				String arrivalDate = arrivalDateField.getText();
+				String departDate = departDateField.getText();
+				String occupants = occupantsField.getText();
+				String number = numberField.getText();
+				
+				Guest guest = new Guest(name, birthDate, arrivalDate, departDate, occupants, number);
+				
+				if(formListener != null) {
+					formListener.reserveRoom(guest);
+				}
+			}
+			
+		});
 
 		layoutComponents();
 
+	}
+	
+	public void setFormListener(FormListener listener) {
+		this.formListener = listener;
 	}
 
 	private void layoutComponents() {
