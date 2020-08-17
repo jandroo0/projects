@@ -28,6 +28,7 @@ public class MainFrame extends JFrame {
 		add(titlePanel, BorderLayout.NORTH);
 		add(formPanel, BorderLayout.CENTER);
 	
+	
 	}
 
 }

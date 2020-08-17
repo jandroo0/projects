@@ -4,10 +4,31 @@ online motel reservation
 application that allows u to reserve motel rooms
 
 classes:
-	motel room
+	-motel room
+		- room #
+		- bed style
+		- 
+		- smoking (bool)
 	
 	
 	
 	
 sends to database -- name - phone # - arrival date - depart date - room #
 
+
+
+gui -- 
+
+
+title
+
+name field
+birthdate field
+arrival/depart date field
+phone number field
+# of occupants field
+
+motel room selection combo ?
+
+reserve button
+--
