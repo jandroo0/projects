@@ -1,14 +1,19 @@
 package model;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
 public class Guest {
 	
-	private String name, birthDate, arrivalDate, departDate, occupants, number;
+	private String name, birthDate, occupants, number;
+	private LocalDate arrivalDate, departDate;
 	
-	public Guest(String name, String birthDate, String arrivalDate, String departDate, String occupants, String number) {
+	public Guest(String name, String birthDate, Date arrivalDate, Date departDate, String occupants, String number) {
 		this.name = name;
 		this.birthDate = birthDate;
-		this.arrivalDate = arrivalDate;
-		this.departDate = departDate;
+		this.arrivalDate = arrivalDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+		this.departDate = departDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		this.occupants = occupants;
 		this.number = number;
 	}
@@ -29,19 +34,19 @@ public class Guest {
 		this.birthDate = birthDate;
 	}
 
-	public String getArrivalDate() {
+	public LocalDate getArrivalDate() {
 		return arrivalDate;
 	}
 
-	public void setArrivalDate(String arrivalDate) {
+	public void setArrivalDate(LocalDate arrivalDate) {
 		this.arrivalDate = arrivalDate;
 	}
 
-	public String getDepartDate() {
+	public LocalDate getDepartDate() {
 		return departDate;
 	}
 
-	public void setDepartDate(String departDate) {
+	public void setDepartDate(LocalDate departDate) {
 		this.departDate = departDate;
 	}
 
@@ -62,7 +67,7 @@ public class Guest {
 	}
 	
 	public String toString() {
-		return "Name: " + name + "\nDates: " + arrivalDate + " to " + departDate;
+		return "Name: " + name + "\nDates: " + arrivalDate + " to " + departDate + "\nOccupants: " + occupants + "\nNumber: " + number;
 	}
 
 }

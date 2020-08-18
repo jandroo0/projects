@@ -14,7 +14,7 @@ public class MainFrame extends JFrame {
 	private FormPanel formPanel;
 	
 	public MainFrame() {
-		super("Application 1.0");
+		super("17TH MOTEL RESERVE");
 		
 		setSize(WIDTH, HEIGHT);
 		setResizable(false);
@@ -24,8 +24,6 @@ public class MainFrame extends JFrame {
 		
 		titlePanel = new TitlePanel();
 		formPanel = new FormPanel();
-		
-		
 		
 		formPanel.setFormListener(new FormListener( ) {
 

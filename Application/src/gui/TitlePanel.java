@@ -12,7 +12,7 @@ public class TitlePanel extends JPanel {
 	
 	public TitlePanel() {
 		
-		title = new JLabel("17th MOTEL RESERVE");
+		title = new JLabel("17th MOTEL");
 		
 		title.setHorizontalAlignment(JLabel.CENTER);
 		
