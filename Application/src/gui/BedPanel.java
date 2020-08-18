@@ -4,31 +4,30 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
+
+import model.RoomStyle;
 
 public class BedPanel extends JPanel {
-
-	JRadioButton twinRadio;
-	JRadioButton doubleTwinRadio;
-	JRadioButton queenRadio;
-	JRadioButton doubleQueenRadio;
-
-	ButtonGroup bedStyleRadio;
+	
+	JComboBox<RoomStyle> bedStyleBox;
+	DefaultComboBoxModel<RoomStyle> bedStyleBoxModel;
 
 	public BedPanel() {
-
-		twinRadio = new JRadioButton("1 Twin");
-		doubleTwinRadio = new JRadioButton("2 Twin");
-		queenRadio = new JRadioButton("1 Queen");
-		doubleQueenRadio = new JRadioButton("2 Queen");
-
-		bedStyleRadio = new ButtonGroup();
-		bedStyleRadio.add(twinRadio);
-		bedStyleRadio.add(doubleTwinRadio);
-		bedStyleRadio.add(queenRadio);
-		bedStyleRadio.add(doubleQueenRadio);
+		
+		bedStyleBox = new JComboBox<RoomStyle>();
+		bedStyleBoxModel = new DefaultComboBoxModel<RoomStyle>();
+		
+		bedStyleBoxModel.addElement(RoomStyle.Twin);
+		bedStyleBoxModel.addElement(RoomStyle.Queen);
+		bedStyleBoxModel.addElement(RoomStyle.x2Twin);
+		bedStyleBoxModel.addElement(RoomStyle.x2Queen);
+		
+		
+		bedStyleBox.setModel(bedStyleBoxModel);
+		
 		
 		layoutComponents();
 
@@ -49,28 +48,25 @@ public class BedPanel extends JPanel {
 
 		gc.gridy = 0;
 		gc.gridx = 0;
-
-		// twin radio button
-		add(twinRadio, gc);
-
-		// queen radio button
-		gc.gridy++;
-
-		add(queenRadio, gc);
-
-		// next row
-
-		gc.gridy++;
-		gc.gridx = 0;
-
-		// twin radio button
-		add(doubleTwinRadio, gc);
-
-		// queen radio button
-		gc.gridy++;
-
-		add(doubleQueenRadio, gc);
+		
+		add(bedStyleBox,  gc);
 
 	}
 
 }
+
+
+//class Bed {
+//	
+//	private int id;
+//	private RoomStyle bedStyle; 
+//	
+//	public Bed(int id, RoomStyle bedStyle) {
+//		this.id = id;
+//		this.bedStyle = bedStyle;
+//	}
+//	
+//	public String toString() {
+//		switch
+//	}
+//}

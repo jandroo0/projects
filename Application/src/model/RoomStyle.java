@@ -2,8 +2,9 @@ package model;
 
 public enum RoomStyle {
 	
-	doubleTwin,
-	queen,
-	doubleQueen
+	Twin,
+	Queen,
+	x2Twin,
+	x2Queen
 
 }

@@ -20,7 +20,7 @@ public class RoomPanel extends JPanel {
 	private void layoutComponents() {
 
 		setLayout(new GridLayout(2, 1));
-		setBorder(BorderFactory.createEmptyBorder(48, 6, 0, 12));
+		setBorder(BorderFactory.createEmptyBorder(0, 6, 0, 12));
 		
 		add(bedPanel);
 		add(roomSelectPanel);
