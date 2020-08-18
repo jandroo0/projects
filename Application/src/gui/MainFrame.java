@@ -12,6 +12,8 @@ public class MainFrame extends JFrame {
 	
 	private TitlePanel titlePanel;
 	private FormPanel formPanel;
+	private RoomPanel roomPanel;
+	private ButtonPanel buttonPanel;
 	
 	public MainFrame() {
 		super("17TH MOTEL RESERVE");
@@ -24,6 +26,8 @@ public class MainFrame extends JFrame {
 		
 		titlePanel = new TitlePanel();
 		formPanel = new FormPanel();
+		roomPanel = new RoomPanel();
+		buttonPanel = new ButtonPanel();
 		
 		formPanel.setFormListener(new FormListener( ) {
 
@@ -38,7 +42,9 @@ public class MainFrame extends JFrame {
 		setLayout(new BorderLayout());
 		
 		add(titlePanel, BorderLayout.NORTH);
-		add(formPanel, BorderLayout.CENTER);
+		add(formPanel, BorderLayout.WEST);
+		add(roomPanel, BorderLayout.CENTER);
+		add(buttonPanel, BorderLayout.SOUTH);
 	
 	
 	}

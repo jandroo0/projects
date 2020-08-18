@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -36,12 +37,7 @@ public class FormPanel extends JPanel {
 	JDatePanelImpl departDatePanel;
 	JDatePickerImpl departDatePicker;
 	
-	JRadioButton twinRadio;
-	JRadioButton doubleTwinRadio;
-	JRadioButton queenRadio;
-	JRadioButton doubleQueenRadio;
-	
-	ButtonGroup bedStyleRadio;
+
 
 	JButton reserveButton;
 
@@ -72,18 +68,6 @@ public class FormPanel extends JPanel {
 
 		arrivalDatePicker = new JDatePickerImpl(arrivalDatePanel, new DateLabelFormatter());
 		departDatePicker = new JDatePickerImpl(departDatePanel, new DateLabelFormatter());
-		
-		twinRadio = new JRadioButton("1 Twin");
-		doubleTwinRadio = new JRadioButton("2 Twin");
-		queenRadio = new JRadioButton("1 Queen");
-		doubleQueenRadio = new JRadioButton("2 Queen");
-		
-		bedStyleRadio = new ButtonGroup();
-		bedStyleRadio.add(twinRadio);
-		bedStyleRadio.add(doubleTwinRadio);
-		bedStyleRadio.add(queenRadio);
-		bedStyleRadio.add(doubleQueenRadio);
-		
 
 		reserveButton = new JButton("Reserve");
 
@@ -118,13 +102,11 @@ public class FormPanel extends JPanel {
 	private void layoutComponents() {
 
 		setLayout(new GridBagLayout());
-		setBorder(BorderFactory.createEmptyBorder(0, 12, 0, 12));
+		setBorder(BorderFactory.createEmptyBorder(0, 12, 0, 6));
 
 		GridBagConstraints gc = new GridBagConstraints();
 
 		// form panel grid layout
-
-		gc.weighty = .2;
 
 		// first row
 
@@ -173,8 +155,6 @@ public class FormPanel extends JPanel {
 		gc.gridy++;
 		gc.gridx = 0;
 
-		gc.insets = new Insets(10, 0, 10, 0);
-
 		// arrival date picker
 		gc.anchor = GridBagConstraints.CENTER;
 
@@ -185,47 +165,10 @@ public class FormPanel extends JPanel {
 		gc.gridy++;
 		gc.gridx = 0;
 
-		gc.insets = new Insets(10, 0, 10, 0);
-
 		// arrival date picker
 		gc.anchor = GridBagConstraints.CENTER;
 
 		add(departDatePicker, gc);
-		
-		//next row 
-		
-		gc.gridy++;
-		gc.gridx = 0;
-		
-		gc.insets = new Insets(10,0,10,0);
-		
-		// bed style radio buttons
-		gc.anchor = GridBagConstraints.LINE_START;
-		add(twinRadio, gc);
-		gc.anchor = GridBagConstraints.LINE_END;
-		add(queenRadio, gc);
-		
-		// next row 
-		
-		gc.gridy++;
-		
-		gc.anchor = GridBagConstraints.LINE_START;
-		add(doubleTwinRadio, gc);
-		gc.anchor = GridBagConstraints.LINE_END;
-		add(doubleQueenRadio, gc);
-
-		// last row
-
-		gc.weighty = 1;
-
-		gc.gridy++;
-		gc.gridx = 0;
-
-		gc.insets = new Insets(10, 0, 10, 0);
-
-		// reserve button
-		gc.anchor = GridBagConstraints.CENTER;
-		add(reserveButton, gc);
 
 	}
 
