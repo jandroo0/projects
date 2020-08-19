@@ -1,6 +1,6 @@
 package gui;
 
-import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
@@ -15,11 +15,12 @@ public class TitlePanel extends JPanel {
 		title = new JLabel("17th MOTEL");
 		
 		title.setHorizontalAlignment(JLabel.CENTER);
+//		title.setBorder(BorderFactory.createEmptyBorder(20,0,0,0));
 		
-		setLayout(new BorderLayout());
-		setBorder(BorderFactory.createEmptyBorder(20,0,0,0));
+		setLayout(new FlowLayout());
+		setBorder(BorderFactory.createEmptyBorder(10,0,0,0));
 		
-		add(title, BorderLayout.CENTER);
+		add(title);
 	}
 
 }

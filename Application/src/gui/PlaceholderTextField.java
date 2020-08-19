@@ -11,7 +11,7 @@ public class PlaceholderTextField extends JTextField {
     private String placeholder;
 
     public PlaceholderTextField() {
-    	setColumns(16);
+    	setColumns(14);
     }
 
     public PlaceholderTextField(

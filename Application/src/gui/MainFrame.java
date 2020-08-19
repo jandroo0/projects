@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.util.Date;
 
 import javax.swing.JFrame;
 
@@ -11,8 +12,8 @@ public class MainFrame extends JFrame {
 	private static final int WIDTH = 400, HEIGHT = 500;
 	
 	private TitlePanel titlePanel;
-	private FormPanel formPanel;
-	private RoomPanel roomPanel;
+	private WestPanel westPanel;
+	private EastPanel eastPanel;
 	private ButtonPanel buttonPanel;
 	
 	public MainFrame() {
@@ -25,14 +26,25 @@ public class MainFrame extends JFrame {
 		setVisible(true);
 		
 		titlePanel = new TitlePanel();
-		formPanel = new FormPanel();
-		roomPanel = new RoomPanel();
+		westPanel = new WestPanel();
+		eastPanel = new EastPanel();
 		buttonPanel = new ButtonPanel();
 		
-		formPanel.setFormListener(new FormListener( ) {
+		buttonPanel.setFormListener(new FormListener( ) {
 
 			@Override
-			public void reserveRoom(Guest guest) {
+			public void registerGuest() {
+				
+				String name = westPanel.getNameField().getText();
+				String birthDate = westPanel.getBirthDateField().getText();
+				Date arrivalDate = (Date) westPanel.getArrivalDatePicker().getModel().getValue();
+				
+				String occupants = eastPanel.getOccupantsField().getText();
+				String number = eastPanel.getNumberField().getText();
+				Date departDate = (Date) eastPanel.getDepartDatePicker().getModel().getValue();
+
+				Guest guest = new Guest(name, birthDate, arrivalDate, departDate, occupants, number);
+				
 				System.out.println("New room reserved:\n" + guest.toString());
 				
 			}
@@ -42,8 +54,8 @@ public class MainFrame extends JFrame {
 		setLayout(new BorderLayout());
 		
 		add(titlePanel, BorderLayout.NORTH);
-		add(formPanel, BorderLayout.WEST);
-		add(roomPanel, BorderLayout.CENTER);
+		add(westPanel, BorderLayout.WEST);
+		add(eastPanel, BorderLayout.CENTER);
 		add(buttonPanel, BorderLayout.SOUTH);
 	
 	
